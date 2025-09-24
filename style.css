@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#inputVerbe {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#resultat {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  white-space: pre-line;
+}
