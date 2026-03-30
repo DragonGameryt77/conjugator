@@ -1,38 +1,153 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #fafafa;
-  padding: 20px;
+:root {
+  --bg: #eef4fb;
+  --ink: #1a2a42;
+  --ink-soft: #4c607c;
+  --line: #cfd9e7;
+  --brand: #1f6feb;
+  --brand-deep: #184fa9;
+  --surface: rgba(255, 255, 255, 0.88);
 }
 
-h1 {
-  text-align: center;
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(31, 111, 235, 0.2), transparent 35%),
+    radial-gradient(circle at 100% 0%, rgba(24, 79, 169, 0.17), transparent 35%),
+    linear-gradient(180deg, #eaf1fb 0%, var(--bg) 100%);
+  display: grid;
+  place-items: center;
+  padding: 24px 14px;
+}
+
+.shell {
+  width: min(760px, 100%);
+  background: var(--surface);
+  border: 1px solid rgba(26, 42, 66, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(9px);
+  box-shadow: 0 18px 40px rgba(18, 42, 82, 0.14);
+  padding: clamp(18px, 3vw, 30px);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  line-height: 1.1;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--brand-deep);
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
 }
 
 .app {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
 }
 
 #inputVerbe {
-  padding: 10px;
-  font-size: 16px;
-  width: 300px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  color: var(--ink);
+  background: #fff;
+}
+
+#inputVerbe:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.18);
 }
 
 button {
-  padding: 10px 15px;
-  margin-left: 10px;
-  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(130deg, var(--brand), var(--brand-deep));
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#resultat {
-  max-width: 600px;
-  margin: 0 auto;
-  background: white;
-  padding: 20px;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,.2);
-  white-space: pre-line;
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(31, 111, 235, 0.24);
+}
+
+.resultat {
+  margin-top: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  min-height: 115px;
+  padding: 14px;
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+  color: #24334f;
+  white-space: pre-wrap;
+}
+
+.resultat .result-line {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border-left: 3px solid var(--brand);
+  background: #f3f8ff;
+  margin-bottom: 8px;
+}
+
+.resultat .result-line:last-child {
+  margin-bottom: 0;
+}
+
+.hint,
+.footer-note {
+  width: min(760px, 100%);
+  text-align: center;
+  color: #516684;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 0.93rem;
+}
+
+.footer-note {
+  margin-top: 5px;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 620px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
 }
