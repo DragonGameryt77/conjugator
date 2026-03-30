@@ -2,17 +2,38 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Analyseur de verbes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Analyseur de verbes</h1>
-  <div class="app">
-    <input type="text" id="inputVerbe" placeholder="Tape un verbe conjugué">
-    <button id="analyser">Analyser</button>
-  </div>
-  <div id="resultat"></div>
+  <main class="shell">
+    <header class="hero">
+      <p class="label">Conjugator</p>
+      <h1>Analyseur de verbes</h1>
+      <p>Entrez une forme verbale en français pour identifier le mode, le temps et la personne.</p>
+    </header>
+
+    <div class="app">
+      <input type="text" id="inputVerbe" placeholder="Ex: mangions" autocomplete="off">
+      <button id="analyser">Analyser</button>
+    </div>
+
+    <div id="resultat" class="resultat" aria-live="polite"></div>
+  </main>
+
+  <div class="hint">Astuce: appuie sur Entrée pour lancer l'analyse.</div>
+  <div class="footer-note">Base locale: conjugaisons.json</div>
 
   <script src="script.js"></script>
+
+  <noscript>JavaScript est requis pour analyser les verbes.</noscript>
+
+  <script>
+    document.getElementById("inputVerbe")?.focus();
+  </script>
 </body>
 </html>
